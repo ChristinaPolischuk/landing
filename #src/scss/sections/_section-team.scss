@@ -1,0 +1,109 @@
+.section-team {
+	padding: 72px 0 54px;
+	background-color: $grey_950;
+	@media screen and (min-width: 1200px) {
+		padding: 120px 0;
+	}
+	&__inner {
+		@media screen and (min-width: 480px) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		@media screen and (min-width: 768px) {
+			display: block;
+		}
+	}
+	&__header {
+		@media screen and (min-width: 768px) {
+			display: flex;
+			align-items: flex-end;
+		}
+	}
+	&__heading {
+		max-width: 430px;
+		@media screen and (min-width: 992px) {
+			max-width: 560px;
+		}
+	}
+	&__text {
+		margin: 16px 32px 0 auto;
+		@media screen and (min-width: 992px) {
+			margin: 0 40px 0 auto;
+			font-size: 18px;
+			line-height: 1.54;
+		}
+		@media screen and (min-width: 1200px) {
+			margin: 0 90px 0 auto;
+		}
+		span {
+			display: block;
+		}
+	}
+	&__content {
+		margin: 40px -8px 0;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		@media screen and (min-width: 768px) {
+			justify-content: space-between;
+			flex-wrap: nowrap;
+		}
+		@media screen and (min-width: 1200px) {
+			margin: 72px -8px 0;
+		}
+	}
+	&__item {
+		max-width: 344px;
+		margin: 0 8px 16px;
+		padding: 24px 18px;
+		border-radius: $border_radius_4;
+		@media screen and (min-width: 1200px) {
+			margin: 0 8px 0;
+		}
+		&:nth-child(odd) {
+			background-color: $grey_900;
+			.section-team__subtitle {
+				color: $grey_500;
+			}
+		}
+		&:nth-child(even) {
+			background-color: $accent_color;
+			.section-team__subtitle {
+				color: $grey_300;
+			}
+		}
+	}
+	&__icon {
+		margin-bottom: 16px;
+	}
+	&__subtitle {
+		font-size: 12px;
+		line-height: 1.64;
+		margin-bottom: 8px;
+	}
+	&__title {
+		margin-bottom: 16px;
+		max-width: 140px;
+		font-size: 22px;
+		line-height: 1.1;
+		@media screen and (min-width: 992px) {
+			font-size: 35px;
+			line-height: 1.28;
+			max-width: 214px;
+		}
+	}
+	&__icon {
+		&.list {
+			width: 46px;
+			height: 56px;
+		}
+		&.time, &.template {
+			width: 56px;
+			height: 48px;
+		}
+	}
+	&__descr {
+		color: $grey_300;
+	}
+}

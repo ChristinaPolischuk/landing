@@ -1,0 +1,79 @@
+.section-conditions {
+	padding: 70px 0;
+	background-color: $grey_950;
+	@media screen and (min-width: 1200px) {
+		padding: 120px 0;
+	}
+	&__header {
+		max-width: 312px;
+		@media screen and (min-width: 480px) {
+			margin: 0 auto;
+			max-width: 460px;
+			text-align: center;
+		}
+		@media screen and (min-width: 992px) {
+			max-width: 564px;
+		}
+	}
+	&__list {
+		margin-top: 32px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		@media screen and (min-width: 680px) {
+			margin: 32px -16px 0;
+		}
+		@media screen and (min-width: 1200px) {
+			margin-top: 56px;
+		}
+	}
+	&__item {
+		max-width: 344px;
+		min-height: 196px;
+		padding: 24px 16px;
+		background-color: $grey_900;
+		border-radius: $border_radius_8;
+		@media screen and (min-width: 680px) {
+			margin-right: 12px;
+			margin-left: 12px;
+		}
+		&:not(:last-child) {
+			margin-bottom: 16px;
+			@media screen and (min-width: 680px) {
+				margin-bottom: 24px;
+			}
+			@media screen and (min-width: 1128px) {
+				margin-bottom: 0;
+			}
+		}
+	}
+	&__step {
+		margin-bottom: 24px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__arrow {
+		width: 41px;
+		height: 16px;
+		position: relative;
+		left: -16px;
+	}
+	&__number {
+		&-1 {
+			width: 6px;
+			height: 24px;
+		}
+		&-2 {
+			width: 16px;
+			height: 24px;
+		}
+		&-3 {
+			width: 26px;
+			height: 24px;
+		}
+	}
+	&__text {
+		line-height: 1.24;
+	}
+}

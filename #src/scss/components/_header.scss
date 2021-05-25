@@ -1,0 +1,30 @@
+.header {
+	position: fixed;
+	z-index: 50;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 14px 0;
+	background-color: $grey_960;
+	transition: padding .6s;
+	@media screen and (min-width: 480px) {
+		padding: 24px 0;
+	}
+	&.scrolled {
+		padding: 7px 0;
+	}
+	&-content {
+		display: flex;
+		align-items: center;
+	}
+	&__btn {
+		display: none;
+		@media screen and (min-width: 992px) {
+			display: block;
+			margin-left: 30px;
+		}
+		@media screen and (min-width: 1128px) {
+			margin-left: 70px;
+		}
+	}
+}

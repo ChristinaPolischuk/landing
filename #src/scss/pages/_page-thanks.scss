@@ -1,0 +1,43 @@
+.page-thanks {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: $grey_960;
+	&__header {
+		padding: 14px 0;
+		background-color: $grey_960;
+		@media screen and (min-width: 480px) {
+			padding: 24px 0;
+		}
+	}
+	&__inner {
+		width: 100%;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		background: url(../img/general/logo_bg.svg) no-repeat center/contain;
+	}
+	&__info {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: 72px 0;
+		@media screen and (min-width: 1200px) {
+			padding: 120px 0;
+		}
+	}
+	&__text {
+		margin: 16px 0 40px;
+		@media screen and (min-width: 992px) {
+			margin: 24px 0 40px;
+			font-size: 18px;
+		}
+	}
+	&__btn {
+		display: inline-block;
+		line-height: 52px;
+	}
+}

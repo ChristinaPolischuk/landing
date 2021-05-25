@@ -1,0 +1,33 @@
+.section-prices {
+	padding-top: 72px;
+	background-color: $grey_950;
+	@media screen and (min-width: 1200px) {
+			padding-top: 120px;
+	}
+	&__header {
+		@media screen and (min-width: 480px) {
+			margin: 0 auto;
+			max-width: 440px;
+			text-align: center;
+		}
+		@media screen and (min-width: 992px) {
+			max-width: 553px;
+		}
+		@media screen and (min-width: 1128px) {
+			max-width: 529px;
+		}
+	}
+	&__heading {
+		position: relative;
+		padding-right: 24px;
+		@media screen and (min-width: 1128px) {
+			padding-right: 0;
+		}
+	}
+	&__services {
+		margin-top: 32px;
+		@media screen and (min-width: 1200px) {
+			margin-top: 72px;
+		}
+	}
+}

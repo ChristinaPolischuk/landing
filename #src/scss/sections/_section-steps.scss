@@ -1,0 +1,195 @@
+.section-steps {
+	padding-top: 72px;
+	background-color: $grey_950;
+	@media screen and (min-width: 1200px) {
+		padding-top: 96px;
+	}
+	&__inner {
+		@media screen and (min-width: 480px) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+	&__header {
+		@media screen and (min-width: 480px) {
+			text-align: center;
+		}
+	}
+	&__heading {
+		letter-spacing: -1px;
+	}
+	&__content {
+		position: relative;
+		margin-top: 32px;
+		@media screen and (min-width: 992px) {
+			text-align: center;
+		}
+		@media screen and (min-width: 1200px) {
+			margin-top: 56px;
+		}
+	}
+	&__list {
+		max-width: 400px;
+		margin: 0 0 40px;
+		padding: 0;
+		position: relative;
+		@media screen and (min-width: 992px) {
+			display: flex;
+			max-width: 100%;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 24px;
+			width: 1px;
+			height: 90%;
+			background-image: linear-gradient(1800deg, transparent, transparent 50%, $grey_950 50%, $grey_950 100%), linear-gradient(180deg, $grey_700, $grey_700, $grey_700, $grey_700, $grey_700);
+  			background-size: 1px 30px, 100% 30px;
+			@media screen and (min-width: 992px) {
+				width: 80%;
+				height: 1px;
+				top: 24px;
+				left: 50%;
+				transform: translateX(-50%);
+				background-image: linear-gradient(90deg, $grey_700, $grey_700 50%, transparent 50%, transparent 100%);
+  				background-size: 30px 1px;
+			}
+		}
+	}
+	&__item {
+		display: flex;
+		color: $grey_300;
+		@media screen and (min-width: 992px) {
+			margin: 0 12px;
+			flex-direction: column;
+			align-items: center;
+			flex: 1;
+			line-height: 1.24;
+		}
+		&:not(:last-child) {
+			margin-bottom: 40px;
+			@media screen and (min-width: 992px) {
+				margin-bottom: 0;
+			}
+		}
+	}
+	$total: 5;
+	$play: 1s;
+	$stay: 2s;
+	$frame-len: 100% / ($total);
+	$play-part: $play / ($play + $stay);
+	@for $n from 1 through $total {
+		$i: $n - 1;
+		&__item:nth-child(#{$n}) circle {
+			animation-name: line-anim-#{$n};
+
+			$frame-wait: $i * $frame-len;
+			$frame-play: $n * $frame-len;
+			@keyframes line-anim-#{$n} {
+				0%,
+				#{$frame-wait} {
+					stroke-dashoffset: 138;
+				}
+
+				#{$frame-play - $frame-len * $play-part} {
+					stroke-dashoffset: 138 - $n * 138 / $total;
+				}
+
+				#{$frame-play + $frame-len},
+				100% {
+					stroke-dashoffset: 138 - $n * 138 / $total;
+				}
+			}
+		}
+	}
+	&__arrow {
+		display: none;
+		@media screen and (min-width: 992px) {
+			display: block;
+			position: absolute;
+			z-index: 1;
+			top: 24px;
+			margin-top: -7px;
+			left: 10%;
+			@media screen and (min-width: 992px) {
+				animation: arrowMove ease infinite;
+				animation-duration: ($play + $stay) * $total;
+			}
+		}
+	}
+
+	$from: 10%;
+	$to: 90%;
+	$offset: -38px;
+
+	@keyframes arrowMove {
+		0% {
+			left: calc(#{$from} + #{$offset});
+		}
+		@for $n from 1 through $total {
+			$i: $n - 1;
+			$left: #{$from + $i * ($to - $from) / ($total - 1)};
+			$frame-play: $n * $frame-len;
+			#{$frame-play - $frame-len * $play-part},
+			#{$frame-play - $frame-len} {
+				left: calc(#{$left} + #{$offset});
+			}
+		}
+		100% {
+			left: calc(#{$to} + #{$offset});
+		}
+	}
+	&__number {
+		flex: none;
+		margin-right: 16px;
+		@include size(48px);
+		position: relative;
+		background-color: $grey_900;
+		border-radius: 50%;
+		color: $grey_100;
+		font-size: 28px;
+		line-height: 48px;
+		font-weight: 500;
+		text-align: center;
+		@media screen and (min-width: 992px) {
+			margin-right: 0;
+			margin-bottom: 24px;
+		}
+	}
+	&__circle {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		width: 100%;
+		height: 100%;
+		transform: rotate(90deg);
+
+		&.circle-1 circle {
+			stroke-dashoffset: 110.14;
+		}
+		&.circle-2 circle {
+			stroke-dashoffset: 82.8;
+		}
+		&.circle-3 circle {
+			stroke-dashoffset: 55.2;
+		}
+		&.circle-4 circle {
+			stroke-dashoffset: 27.6;
+		}
+		&.circle-5 circle {
+			stroke-dashoffset: 0;
+		}
+
+		& circle {
+			stroke-dasharray: 138;
+			@media screen and (min-width: 992px) {
+				animation: ease infinite;
+				animation-duration: ($play + $stay) * $total;
+			}
+		}
+	}
+}
